@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="341_project_1" targetName="341_project_1" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="790275d4-0d9f-42ac-8c4b-22b163cfa2c3" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="1c0b201d-87e6-4349-a8db-502b3f0b280c" />
+  </component>
+  <component name="ProjectId" id="1XPjiUeocaGsimq0UORweuFfeud" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RunManager">
+    <configuration name="341_project_1" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="341_project_1" TARGET_NAME="341_project_1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="341_project_1" RUN_TARGET_NAME="341_project_1">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="790275d4-0d9f-42ac-8c4b-22b163cfa2c3" name="Default Changelist" comment="" />
+      <created>1580954750588</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580954750588</updated>
+      <workItem from="1580954752118" duration="920000" />
+      <workItem from="1580955753918" duration="986000" />
+      <workItem from="1581298467215" duration="287000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="569" y="252" width="518" height="325" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1580956365115">
+      <screen x="67" y="27" width="1533" height="777" />
+    </state>
+    <state x="569" y="252" width="518" height="325" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/67.27.1533.777@67.27.1533.777" timestamp="1580956365115" />
+    <state x="167" y="125" width="1333" height="579" key="DiffContextDialog" timestamp="1580956765051">
+      <screen x="67" y="27" width="1533" height="777" />
+    </state>
+    <state x="167" y="125" width="1333" height="579" key="DiffContextDialog/67.27.1533.777@67.27.1533.777" timestamp="1580956765051" />
+    <state x="616" y="172" width="447" height="484" key="FileChooserDialogImpl" timestamp="1581298563425">
+      <screen x="67" y="27" width="1533" height="777" />
+    </state>
+    <state x="616" y="172" width="447" height="484" key="FileChooserDialogImpl/67.27.1533.777@67.27.1533.777" timestamp="1581298563425" />
+    <state width="687" height="237" key="GridCell.Tab.0.bottom" timestamp="1580955966622">
+      <screen x="67" y="27" width="733" height="761" />
+    </state>
+    <state width="687" height="237" key="GridCell.Tab.0.bottom/67.27.733.761@67.27.733.761" timestamp="1580955966622" />
+    <state width="687" height="237" key="GridCell.Tab.0.center" timestamp="1580955966620">
+      <screen x="67" y="27" width="733" height="761" />
+    </state>
+    <state width="687" height="237" key="GridCell.Tab.0.center/67.27.733.761@67.27.733.761" timestamp="1580955966620" />
+    <state width="687" height="237" key="GridCell.Tab.0.left" timestamp="1580955966619">
+      <screen x="67" y="27" width="733" height="761" />
+    </state>
+    <state width="687" height="237" key="GridCell.Tab.0.left/67.27.733.761@67.27.733.761" timestamp="1580955966619" />
+    <state width="687" height="237" key="GridCell.Tab.0.right" timestamp="1580955966621">
+      <screen x="67" y="27" width="733" height="761" />
+    </state>
+    <state width="687" height="237" key="GridCell.Tab.0.right/67.27.733.761@67.27.733.761" timestamp="1580955966621" />
+    <state x="322" y="52" key="SettingsEditor" timestamp="1581298753195">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="322" y="49" key="SettingsEditor/67.27.1533.777@67.27.1533.777" timestamp="1580956781862" />
+    <state x="322" y="52" key="SettingsEditor/67.27.1533.873@67.27.1533.873" timestamp="1581298753195" />
+    <state x="167" y="125" width="1333" height="579" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1580956071923">
+      <screen x="67" y="27" width="1533" height="777" />
+    </state>
+    <state x="167" y="125" width="1333" height="579" key="com.intellij.history.integration.ui.views.FileHistoryDialog/67.27.1533.777@67.27.1533.777" timestamp="1580956071923" />
+    <state x="489" y="242" key="com.intellij.ide.util.TipDialog" timestamp="1581298475842">
+      <screen x="67" y="27" width="1533" height="777" />
+    </state>
+    <state x="489" y="242" key="com.intellij.ide.util.TipDialog/67.27.1533.777@67.27.1533.777" timestamp="1581298475842" />
+    <state x="496" y="125" width="672" height="678" key="search.everywhere.popup" timestamp="1581298557007">
+      <screen x="67" y="27" width="1533" height="777" />
+    </state>
+    <state x="496" y="125" width="672" height="678" key="search.everywhere.popup/67.27.1533.777@67.27.1533.777" timestamp="1581298557007" />
+  </component>
+</project>
