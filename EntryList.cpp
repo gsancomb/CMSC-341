@@ -12,16 +12,87 @@ EntryList::EntryList() {
 }
 
 EntryList::EntryList(const EntryList& rhs) {
+    _capacity = rhs._capacity;
+    _size = rhs._size;
+
+    _array = new Entry[_capacity];
+
+    for (int i = 0; i < _size; i++) {
+        _array[i] = rhs._array[i];
+    }
 }
 
 const EntryList& EntryList::operator=(const EntryList& rhs) {
+    _capacity = rhs._capacity;
+    _size = rhs._size;
+
+    _array = new Entry[_capacity];
+
+    for (int i = 0; i < _size; i++) {
+        _array[i] = rhs._array[i];
+    }
+    return *this;
 }
   
 EntryList::~EntryList() {
+    delete[] _array;
+    _array = NULL;
 }
 
 bool EntryList::insert(const Entry& e) {
+
+    Entry temp_position[2];
+    if (_size + 1 == _capacity){
+        _capacity *= 2;
+        auto *new_entry_list = new Entry[_capacity];
+        for (int i = 0; i <= _size; i ++){
+            new_entry_list[i] = _array[i];
+        }
+        delete[] _array;
+        _array = nullptr;
+
+        _array = new_entry_list;
+    }
+
+    if (_size == 0) {
+        _array[0] = e;
+        cout << "first size ==0" << endl;
+        _size++;
+        return true;
+    } else {
+        for (int i = 0; i <= _size; i++) {
+            if (e._vertex == _array->_vertex) {
+                if (i == _size) {
+                    //cout << "if vertex is in array" << endl;
+                    return false;
+                }
+
+
+            } else if (e._vertex < _array[i]._vertex) {
+                temp_position[0] = _array[i];
+                _array[i] = e;
+                temp_position[1] = temp_position[0];
+               // cout << "saved temp position" << endl;
+                for (int j = (i + 1); j <= _size; j++) {
+                    cout << "in j loop"<< endl;
+                    temp_position[0] = temp_position[1];
+                    temp_position[1] = _array[j];
+                    _array[j] = temp_position[0];
+                }
+                _size++;
+                return true;
+            }
+
+            else if (i == _size){
+                _array[_size] = e;
+                _size++;
+              return true;
+            }
+        }
+    }
+
 }
+
   
 bool EntryList::update(const Entry& e) {
 }
@@ -30,6 +101,9 @@ bool EntryList::getEntry(int vertex, Entry &ret) {
 }
 
 bool EntryList::remove(int vertex, Entry &ret) {
+    for (int i = 0; i <=_size; i ++){
+        
+    }
 }
 
 EntryList::Entry& EntryList::at(int indx) const {
@@ -78,25 +152,24 @@ ostream& operator<<(ostream& sout, const EntryList::Entry& e) {
 // In particular, passing these tests does not mean your
 // implementation will pass all grading tests.
 
-// int main() {
-//   EntryList el;
-//   EntryList::Entry e;
+ int main() {
+   EntryList el;
+   EntryList::Entry e;
 
-//   cout << "size: " << el.size() << ", capacity: " << el.capacity() << endl;
-//   el.dump();
-//   cout << endl;
+   cout << "size: " << el.size() << ", capacity: " << el.capacity() << endl;
+   el.dump();
+   cout << endl;
 
-//   for (int i = 1; i < 13; i++) {
-//     el.insert( EntryList::Entry((i*5)%13, i) );
-//   }
+   for (int i = 1; i < 13; i++) {
+       el.insert( EntryList::Entry((i*5)%13, i) );
+   }
+   cout << "size: " << el.size() << ", capacity: " << el.capacity() << endl;
+   el.dump();
+   cout << endl;
 
-//   cout << "size: " << el.size() << ", capacity: " << el.capacity() << endl;
-//   el.dump();
-//   cout << endl;
-
-//   for (int i = 1; i < 13; i+=2) {
-//     el.remove(i, e);
-//   }
+   for (int i = 1; i < 13; i+=2) {
+     el.remove(i, e);
+   }
 
 //   cout << "size: " << el.size() << ", capacity: " << el.capacity() << endl;
 //   el.dump();
@@ -124,5 +197,5 @@ ostream& operator<<(ostream& sout, const EntryList::Entry& e) {
 //   cout << *itr << endl;
 // }
 
-//   return 0;
-// }
+    return 0;
+}
