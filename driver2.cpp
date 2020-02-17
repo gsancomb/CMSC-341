@@ -35,25 +35,27 @@ int main() {
    Graph* Gptr2 = new Graph(*Gptr) ;
    cout << "\nCopy G2 = Graph(G1):\n" ;
    Gptr2->dump() ;
+   cout << "delete before" << endl;
 
    // Get rid off original graph; check if new (copy) graph is still
    // correct.
-   delete Gptr ;
-   cout << "\nCopy (G2) after deleting original (G1):\n" ;
-   Gptr2->dump() ;
-
-   // Make another graph and dump it
+//   delete Gptr ;
+//    cout << "delete after" << endl;
+//   cout << "\nCopy (G2) after deleting original (G1):\n" ;
+//   Gptr2->dump() ;
+//
+//   // Make another graph and dump it
    Graph G3(3) ;
-   G3.addEdge(0, 1, 1);
-   G3.addEdge(0, 2, 1);
-   G3.addEdge(1, 2, 1);
-   cout << "\nNew graph (G3):\n";
-   G3.dump() ;
-
-   // Assign G2 to G3 and dump G3
+//   G3.addEdge(0, 1, 1);
+//   G3.addEdge(0, 2, 1);
+//   G3.addEdge(1, 2, 1);
+//   cout << "\nNew graph (G3):\n";
+//   G3.dump() ;
+//
+//   // Assign G2 to G3 and dump G3
    G3 = *Gptr2 ;
    cout << "\nAssign G3 = G2:\n";
    G3.dump() ;
-
-   delete Gptr2 ;
+//
+//   delete Gptr2 ;
 }

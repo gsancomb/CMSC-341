@@ -115,6 +115,7 @@ bool EntryList::update(const Entry& e) {
 bool EntryList::getEntry(int vertex, Entry &ret) {
     for (int i = 0; i <= _size; i ++){
         if (vertex == _array[i]._vertex){
+            ret = _array[i];
             return true;
         }
     }
@@ -125,6 +126,7 @@ bool EntryList::remove(int vertex, Entry &ret) {
     bool remove_check = false;
     for (int i = 0; i <= _size; i++) {
         if (_array[i]._vertex == vertex) {
+            ret = _array[i]._vertex;
             for (int j = i; j <= _size; j++) {
                 _array[j] = _array[j + 1];
             }
@@ -185,9 +187,7 @@ EntryList::Iterator EntryList::begin() {
     return Iterator(this, 0);
 }
 
-EntryList::Iterator EntryList::end() {
-
-    return Iterator(this, _size);}
+EntryList::Iterator EntryList::end() {return Iterator(this, _size);}
 
 // Insertion operator for Entry objects - DO NOT MODIFY
 ostream& operator<<(ostream& sout, const EntryList::Entry& e) {
