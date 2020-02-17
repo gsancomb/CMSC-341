@@ -8,24 +8,50 @@ using std::invalid_argument;
 
 // Constructor - DO NOT MODIFY
 Graph::Graph(int n) {
-  if (n <= 0)
-    throw invalid_argument("Graph::Graph(): number of vertices must be positive");
+    if (n <= 0)
+        throw invalid_argument("Graph::Graph(): number of vertices must be positive");
 
-  _rows = new EntryList*[n];
-  for (int i = 0; i < n; i++) {
-    _rows[i] = new EntryList();
-  }
-  _numVert = n;
-  _numEdge = 0;
+    _rows = new EntryList*[n];
+    for (int i = 0; i < n; i++) {
+        _rows[i] = new EntryList();
+    }
+    _numVert = n;
+    _numEdge = 0;
 }
 
 Graph::Graph(const Graph& G) {
+    int n = G._numEdge;
+    _rows = new EntryList*[n];
+
+    for (int i = 0; i < n; i++) {
+        _rows[i] = new EntryList();
+        _rows[i] = G._rows[i];
+    }
+
+    _numVert = n;
+    _numEdge = G._numVert;
 }
 
 const Graph& Graph::operator=(const Graph& rhs) {
+    int n = rhs._numEdge;
+    _rows = new EntryList*[n];
+
+    for (int i = 0; i < n; i++) {
+        _rows[i] = new EntryList();
+        _rows[i] = rhs._rows[i];
+    }
+
+    _numVert = n;
+    _numEdge = rhs._numVert;
+    return *this;
 }
 
 Graph::~Graph() {
+    for (int i = 0; i <= _numVert; i++){
+        delete[] _rows;
+        _rows = nullptr;
+    }
+
 }
 
 // Number of vertices - DO NOT MODIFY
@@ -39,6 +65,7 @@ int Graph::numEdge() const {
 }
 
 void Graph::addEdge(int u, int v, weight_t x) {
+    _rows.
 }
 
 bool Graph::removeEdge(int u, int v) {
