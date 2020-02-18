@@ -10,4 +10,4 @@ add_executable(341_project_1
         EntryList.h
         Graph.cpp
         Graph.h
-        driver1.cpp)
+        mytest.cpp)

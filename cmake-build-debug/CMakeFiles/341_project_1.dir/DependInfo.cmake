@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/gsancomb/CLionProjects/test/341_project_1/EntryList.cpp" "/home/gsancomb/CLionProjects/test/341_project_1/cmake-build-debug/CMakeFiles/341_project_1.dir/EntryList.cpp.o"
   "/home/gsancomb/CLionProjects/test/341_project_1/Graph.cpp" "/home/gsancomb/CLionProjects/test/341_project_1/cmake-build-debug/CMakeFiles/341_project_1.dir/Graph.cpp.o"
-  "/home/gsancomb/CLionProjects/test/341_project_1/driver1.cpp" "/home/gsancomb/CLionProjects/test/341_project_1/cmake-build-debug/CMakeFiles/341_project_1.dir/driver1.cpp.o"
+  "/home/gsancomb/CLionProjects/test/341_project_1/mytest.cpp" "/home/gsancomb/CLionProjects/test/341_project_1/cmake-build-debug/CMakeFiles/341_project_1.dir/mytest.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

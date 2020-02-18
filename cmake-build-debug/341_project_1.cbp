@@ -98,7 +98,7 @@
 		<Unit filename="/home/gsancomb/CLionProjects/test/341_project_1/Graph.h">
 			<Option target="341_project_1"/>
 		</Unit>
-		<Unit filename="/home/gsancomb/CLionProjects/test/341_project_1/driver1.cpp">
+		<Unit filename="/home/gsancomb/CLionProjects/test/341_project_1/mytest.cpp">
 			<Option target="341_project_1"/>
 		</Unit>
 		<Unit filename="/home/gsancomb/CLionProjects/test/341_project_1/CMakeLists.txt">
