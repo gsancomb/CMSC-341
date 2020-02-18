@@ -73,26 +73,28 @@ int main() {
    }
    cout << endl ;
 
-//
-//   // Remove some edges and then print all the edges again
-//
-//   cout << "\nRemove edges (3,4), (0,4), and (1,2)...\n";
-//   G.removeEdge(3,4);
-//   G.removeEdge(0,4);
-//   G.removeEdge(1,2);
-//
-//   cout << "\nnumVert = " << G.numVert() << ", numEdge = " << G.numEdge() << endl;
-//   cout << "The edges in the graph are:\n" ;
-//   for (eit = G.egBegin() ; eit != G.egEnd() ; eit++) {
-//     edge = *eit ;   // get current edge
-////
-////     // the two data members of a pair are first and second
-////     //
-//     cout << "(" << get<0>(edge) << ", "
-//   	  << get<1>(edge) << ", "
-//   	  << get<2>(edge) << ") " ;
-//
-//   }
-//   cout << endl ;
+
+   // Remove some edges and then print all the edges again
+
+   cout << "\nRemove edges (3,4), (0,4), and (1,2)...\n";
+   G.removeEdge(3,4);
+   G.removeEdge(0,4);
+   G.removeEdge(1,2);
+
+
+   cout << "\nnumVert = " << G.numVert() << ", numEdge = " << G.numEdge() << endl;
+   cout << "The edges in the graph are:\n" ;
+   for (eit = G.egBegin() ; eit != G.egEnd() ; eit++) {
+     edge = *eit ;   // get current edge
+
+
+//     // the two data members of a pair are first and second
+//     //
+     cout << "(" << get<0>(edge) << ", "
+   	  << get<1>(edge) << ", "
+   	  << get<2>(edge) << ") " ;
+
+   }
+
 
 }

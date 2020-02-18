@@ -48,19 +48,15 @@ const Graph& Graph::operator=(const Graph& rhs) {
 }
 
 Graph::~Graph() {
-//    if (_rows != nullptr) {
-//        for (int i = 0; _numVert > 0; i++) {
-////            for (int j = 0; _numEdge > 0; j++) {
-//            delete _rows[i];
-//            _rows[i] = nullptr;
-////            _numEdge--;
-////                removeEdge(_rows[i], _rows[i]->at(j))
-//        }
-//    }
-//
-//    delete[] _rows;
-//    _rows = nullptr;
-//    }
+    for (int i = 0; i < _numVert; i++) {
+        delete _rows[i];
+        _rows[i] = nullptr;
+    }
+    delete[] _rows;
+    _rows = nullptr;
+    _numEdge = 0;
+    _numVert = 0;
+
 }
 
 // Number of vertices - DO NOT MODIFY
@@ -129,7 +125,7 @@ tuple<int,int,weight_t> Graph::EgIterator::operator*() {
     weight_t x=0;
     EntryList::Entry ret;
 
-    if (_Gptr != nullptr) {
+    if (_Gptr != NULL) {
         EntryList::Iterator copy;
         int i = 0;
         for (copy = _Gptr->_rows[_row]->begin(); copy != _itr; copy++) {
@@ -149,30 +145,65 @@ tuple<int,int,weight_t> Graph::EgIterator::operator*() {
 bool Graph::EgIterator::operator!=(const EgIterator& rhs) {return _row != rhs._row; }
 
 void Graph::EgIterator::operator++(int dummy) {
-    if( _itr != _Gptr->_rows[_row]->end() ) {
-        _itr++;
-        EntryList::Iterator copy;
-        int i = 0;
-        for (copy = _Gptr->_rows[_row]->begin(); copy != _itr; copy++) {
-            i++;
-        }
+//    EntryList::Iterator copy;
+//    int i = 0;
+//    for (copy = _Gptr->_rows[_row]->begin(); copy != _itr; copy++) {
+//        i++;
+//    }
+//
+//    if( _itr != _Gptr->_rows[_row]->end() ) {
+//        _itr++;
+//
+//        if (_Gptr->_rows[_row]->size()  == i){
+//            _row++;
+//            _itr = _Gptr->_rows[_row]->begin();
+//
+//            if (_Gptr->_rows[_row]->size()  == 0) {
+//                _row++;
+//            }
+//        }
+//    }
+//
+//    else {
+//        _row++;
+//        _itr = _Gptr->_rows[_row]->begin();
+//        if (_Gptr->_rows[_row]->size()  == i){
+//            _row++;
+//            _itr = _Gptr->_rows[_row]->begin();
+//
+//            if (_Gptr->_rows[_row]->size()  == 0) {
+//                _row++;
+//            }
+//        }
+//    }
 
-        if (_Gptr->_rows[_row]->size()  == i){
+    if (_itr != _Gptr->_rows[_row]->end()){
+        _itr++;
+        if(_itr == _Gptr->_rows[_row]->end()){
             _row++;
             _itr = _Gptr->_rows[_row]->begin();
-
-            if (_Gptr->_rows[_row]->size()  == 0) {
-                _row++;
+//            cout << "if end";
+        }
+        if (_Gptr->_rows[_row]->size() == 0) {
+            for (int i = _row; i < _Gptr->_numVert; i++) {
+                if (_Gptr->_rows[i]->size() == 0) {
+                    _row++;
+                    _itr = _Gptr->_rows[_row]->begin();
+                }
             }
         }
+
     }
-    else {
-        _row++;
-        _itr = _Gptr->_rows[_row]->begin();
+    else if (_itr == _Gptr->_rows[_row]->end()){
+        _itr = _Gptr->_rows[_row]->end();
+        _row = _Gptr->_numVert;
+//        cout << "Else";
+
     }
+    cout << endl;
 }
 
-Graph::EgIterator Graph::egBegin() { return EgIterator(this, false); }
+Graph::EgIterator Graph::egBegin() { return EgIterator( this, false); }
  
 Graph::EgIterator Graph::egEnd() { return EgIterator( this, true); }
 

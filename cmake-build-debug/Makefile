@@ -177,32 +177,32 @@ Graph.cpp.s:
 	$(MAKE) -f CMakeFiles/341_project_1.dir/build.make CMakeFiles/341_project_1.dir/Graph.cpp.s
 .PHONY : Graph.cpp.s
 
-mytest.o: mytest.cpp.o
+driver1.o: driver1.cpp.o
 
-.PHONY : mytest.o
+.PHONY : driver1.o
 
 # target to build an object file
-mytest.cpp.o:
-	$(MAKE) -f CMakeFiles/341_project_1.dir/build.make CMakeFiles/341_project_1.dir/mytest.cpp.o
-.PHONY : mytest.cpp.o
+driver1.cpp.o:
+	$(MAKE) -f CMakeFiles/341_project_1.dir/build.make CMakeFiles/341_project_1.dir/driver1.cpp.o
+.PHONY : driver1.cpp.o
 
-mytest.i: mytest.cpp.i
+driver1.i: driver1.cpp.i
 
-.PHONY : mytest.i
+.PHONY : driver1.i
 
 # target to preprocess a source file
-mytest.cpp.i:
-	$(MAKE) -f CMakeFiles/341_project_1.dir/build.make CMakeFiles/341_project_1.dir/mytest.cpp.i
-.PHONY : mytest.cpp.i
+driver1.cpp.i:
+	$(MAKE) -f CMakeFiles/341_project_1.dir/build.make CMakeFiles/341_project_1.dir/driver1.cpp.i
+.PHONY : driver1.cpp.i
 
-mytest.s: mytest.cpp.s
+driver1.s: driver1.cpp.s
 
-.PHONY : mytest.s
+.PHONY : driver1.s
 
 # target to generate assembly for a file
-mytest.cpp.s:
-	$(MAKE) -f CMakeFiles/341_project_1.dir/build.make CMakeFiles/341_project_1.dir/mytest.cpp.s
-.PHONY : mytest.cpp.s
+driver1.cpp.s:
+	$(MAKE) -f CMakeFiles/341_project_1.dir/build.make CMakeFiles/341_project_1.dir/driver1.cpp.s
+.PHONY : driver1.cpp.s
 
 # Help Target
 help:
@@ -219,9 +219,9 @@ help:
 	@echo "... Graph.o"
 	@echo "... Graph.i"
 	@echo "... Graph.s"
-	@echo "... mytest.o"
-	@echo "... mytest.i"
-	@echo "... mytest.s"
+	@echo "... driver1.o"
+	@echo "... driver1.i"
+	@echo "... driver1.s"
 .PHONY : help
 
 

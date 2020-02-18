@@ -13,6 +13,7 @@ EntryList::EntryList() {
 
 EntryList::EntryList(const EntryList& rhs) {
     _capacity = rhs._capacity;
+    _size = 0;
     _size = rhs._size;
 
     _array = new Entry[_capacity];
@@ -24,6 +25,7 @@ EntryList::EntryList(const EntryList& rhs) {
 
 const EntryList& EntryList::operator=(const EntryList& rhs) {
     _capacity = rhs._capacity;
+    _size = 0;
     _size = rhs._size;
 
     _array = new Entry[_capacity];
@@ -35,15 +37,8 @@ const EntryList& EntryList::operator=(const EntryList& rhs) {
 }
   
 EntryList::~EntryList() {
-//    Entry ret;
-//    for (int i = 0; i < _size; i++) {
-//        remove(_array[i].getVertex(), ret);
-//    }
-//    delete[] _array;
-//    _array = nullptr;
-//    _capacity = 0;
-//    _size = 0;
-
+    delete[] _array;
+    _array = nullptr;
 }
 
 bool EntryList::insert(const Entry& e) {
@@ -165,7 +160,7 @@ bool EntryList::remove(int vertex, Entry &ret) {
 //TODO
 //throw range error
 EntryList::Entry& EntryList::at(int indx) const {
-    if (indx > _size){
+    if (indx > _size or _size < 0){
         throw range_error("EntryList :: at : indx is out of range of _size");
     }
     else{
