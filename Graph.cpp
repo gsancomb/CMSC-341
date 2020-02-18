@@ -48,12 +48,18 @@ const Graph& Graph::operator=(const Graph& rhs) {
 }
 
 Graph::~Graph() {
-//    for (int i = 0; i <= _numVert; i++){
-//        delete _rows[i];
-//        _rows[i] = nullptr;
+//    if (_rows != nullptr) {
+//        for (int i = 0; _numVert > 0; i++) {
+//            for (int j = 0; _numEdge > 0; j++) {
+////            delete _rows[i];
+////            _rows[i] = nullptr;
+////            _numEdge--;
+////                removeEdge(_rows[i], _rows[i]->at(j))
+//            }
+//        }
+//    delete[] _rows;
+//    _rows = nullptr;
 //    }
-    delete [] _rows;
-    _rows = nullptr;
 }
 
 // Number of vertices - DO NOT MODIFY
@@ -98,50 +104,85 @@ void Graph::dump() const {
 
 
 Graph::EgIterator::EgIterator(Graph *Gptr, bool enditr) {
+    _Gptr = Gptr;
+    _row = 0;
+    if (Gptr != NULL) {
+        if (enditr) {
+            _row = _Gptr->_numVert;
+            _itr = _Gptr->_rows[_row]->end();
+
+        }
+
+        else {
+            _row = 0;
+            _itr = _Gptr->_rows[_row]->begin();
+
+        }
+    }
 }
   
 tuple<int,int,weight_t> Graph::EgIterator::operator*() {
-}
+    int u = 0;
+    int v = 0;
+    weight_t x=0;
+    EntryList::Entry ret;
 
-bool Graph::EgIterator::operator!=(const EgIterator& rhs) {
-}
-
-void Graph::EgIterator::operator++(int dummy) { _row+=1;
-}
-
-Graph::EgIterator Graph::egBegin() {
-}
- 
-Graph::EgIterator Graph::egEnd() {
-}
- //Todo
- // iterator does not work
-Graph::NbIterator::NbIterator(Graph *Gptr, int v, bool enditr) {
-    if(enditr){
-        _row = v;
-        _Gptr = Gptr;
-        _itr =_Gptr->_rows[v]->begin();
-        auto itr = _Gptr->_rows[v]->begin();
-
+    if (_Gptr != nullptr) {
+        EntryList::Iterator copy;
+        int i = 0;
+        for (copy = _Gptr->_rows[_row]->begin(); copy != _itr; copy++) {
+            i++;
+        }
+        ret = _Gptr->_rows[_row]->at(i);
+        u = _row;
+        v = ret.getVertex();
+        x = ret.getWeight();
+        return (tuple<int, int, weight_t>(u, v, x));
     }
     else {
-        _row = v;
-        _Gptr = Gptr;
-        //_itr =_Gptr->_rows[v]->end();
+        cout << "_Gptr == NULL pair function"<< endl;
     }
-
 }
 
-bool Graph::NbIterator::operator!=(const NbIterator& rhs) { return _row != rhs._row;}
+bool Graph::EgIterator::operator!=(const EgIterator& rhs) {return _row != rhs._row; }
 
-void Graph::NbIterator::operator++(int dummy) { _itr++;}
+void Graph::EgIterator::operator++(int dummy) { _row++; }
+
+Graph::EgIterator Graph::egBegin() { return EgIterator(this, false); }
+ 
+Graph::EgIterator Graph::egEnd() { return EgIterator( this, true); }
+
+Graph::NbIterator::NbIterator(Graph *Gptr, int v, bool enditr) {
+    _row = v;
+    _Gptr = Gptr;
+    if (Gptr != NULL){
+        if (enditr){
+
+            _itr = _Gptr->_rows[_row]->end();
+        }
+        else {
+            _itr = _Gptr->_rows[_row]->begin();
+        }
+    }
+}
+
+bool Graph::NbIterator::operator!=(const NbIterator& rhs) { return (_itr!= rhs._itr); }
+
+void Graph::NbIterator::operator++(int dummy) { _itr++; }
 
 pair<int,weight_t> Graph::NbIterator::operator*() {
     int v=0;
     weight_t x=0;
     EntryList::Entry ret;
     if (_Gptr != nullptr) {
-        _Gptr->_rows[_row]->getEntry(0, ret);
+        EntryList::Iterator copy;
+
+        int i = 0;
+        for (copy = _Gptr->_rows[_row]->begin(); copy != _itr; copy++) {
+            i++;
+        }
+        ret = _Gptr->_rows[_row]->at(i);
+
         v = ret.getVertex();
         x = ret.getWeight();
         return (pair<int, weight_t>(v, x));
@@ -151,12 +192,7 @@ pair<int,weight_t> Graph::NbIterator::operator*() {
     }
 
 }
-//todo
-// check the begin and end
-Graph::NbIterator Graph::nbBegin(int v) {
-    return NbIterator(this, v , false);
-}
 
-Graph::NbIterator Graph::nbEnd(int v) {
-    return  NbIterator(this, v, true );
-}
+Graph::NbIterator Graph::nbBegin(int v) { return NbIterator(this, v , false); }
+
+Graph::NbIterator Graph::nbEnd(int v) { return  NbIterator(this,  v , true ); }

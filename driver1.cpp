@@ -24,50 +24,55 @@ int main() {
    G.addEdge(1,2,16);
    G.addEdge(2,4,17);
 
-//    dump the graph
+////    dump the graph
    G.dump();
 //    G.removeEdge(3,4);
 //    G.removeEdge(3,4);
 //    G.dump();
-//    Use the neighbor iterator.  Loop over all the vertices; print
-//    each vertex's neighbors.
+////    Use the neighbor iterator.  Loop over all the vertices; print
+////    each vertex's neighbors.
 
 
-    cout << "test begin" << endl;
-    Graph::NbIterator nit ;
-    G.nbBegin(0);
-    cout << (*nit).first << endl;
+//    cout << "test begin" << endl;
+//    Graph::NbIterator nit ;
+//    G.nbBegin(0);
+//    cout << (*nit).first << endl;
+//    G.dump();
+   Graph::NbIterator nit;
+//   nit = G.nbBegin(0);
+//   cout << "test first" << endl;
+//   cout  << (*nit).first <<", " << (*nit).second << endl;
+//    nit = G.nbEnd(0);
+//    cout << "test first" << endl;
+//    cout  << (*nit).first <<", " << (*nit).second << endl;
 
-//   Graph::NbIterator nit ;
+   for (int i = 0; i < G.numVert(); i++) {
+     cout << "\nThe neighbors of vertex " << i << " are:\n" ;
+     for (nit = G.nbBegin(i); nit != G.nbEnd(i) ; nit++) {
+       cout << "(" << (*nit).first << ", " << (*nit).second << ")" << " " ;
+     }
+     cout << endl ;
+   }
 //
-//   for (int i = 0; i < G.numVert(); i++) {
-//     cout << "\nThe neighbors of vertex " << i << " are:\n" ;
-//     for (nit = G.nbBegin(i); nit != G.nbEnd(i) ; nit++) {
-//       cout << "(" << (*nit).first << ", " << (*nit).second << ")" << " " ;
-//     }
-//     cout << endl ;
-//   }
+   // Use the edge iterator.  Iterate over all edges and print them.
 //
-//   // Use the edge iterator.  Iterate over all edges and print them.
-//
-//   Graph::EgIterator eit ;
-//   std::tuple<int,int,int> edge ;
-//
-//   cout << "\nnumVert = " << G.numVert() << ", numEdge = " << G.numEdge() << endl;
-//   cout << "The edges in the graph are:\n" ;
-//   for (eit = G.egBegin() ; eit != G.egEnd() ; eit++) {
-//
-//     edge = *eit ;   // get current edge
-//
-//     // the two data members of a pair are first and second
-//     //
-//     cout << "(" << get<0>(edge) << ", "
-//   	  << get<1>(edge) << ", "
-//   	  << get<2>(edge) << ") " ;
-//
-//   }
-//   cout << endl ;
-//
+   Graph::EgIterator eit ;
+   std::tuple<int,int,int> edge ;
+
+   cout << "\nnumVert = " << G.numVert() << ", numEdge = " << G.numEdge() << endl;
+   cout << "The edges in the graph are:\n" ;
+
+   for (eit = G.egBegin() ; eit != G.egEnd() ; eit++) {
+     edge = *eit ;   // get current edge
+     // the two data members of a pair are first and second
+
+     cout << "(" << get<0>(edge) << ", "
+   	  << get<1>(edge) << ", "
+   	  << get<2>(edge) << ") " ;
+
+   }
+   cout << endl ;
+
 //
 //   // Remove some edges and then print all the edges again
 //
@@ -80,9 +85,9 @@ int main() {
 //   cout << "The edges in the graph are:\n" ;
 //   for (eit = G.egBegin() ; eit != G.egEnd() ; eit++) {
 //     edge = *eit ;   // get current edge
-//
-//     // the two data members of a pair are first and second
-//     //
+////
+////     // the two data members of a pair are first and second
+////     //
 //     cout << "(" << get<0>(edge) << ", "
 //   	  << get<1>(edge) << ", "
 //   	  << get<2>(edge) << ") " ;

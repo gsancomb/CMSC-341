@@ -35,8 +35,15 @@ const EntryList& EntryList::operator=(const EntryList& rhs) {
 }
   
 EntryList::~EntryList() {
-    delete[] _array;
-    _array = nullptr;
+//    Entry ret;
+//    for (int i = 0; i < _size; i++) {
+//        remove(_array[i].getVertex(), ret);
+//    }
+//    delete[] _array;
+//    _array = nullptr;
+//    _capacity = 0;
+//    _size = 0;
+
 }
 
 bool EntryList::insert(const Entry& e) {
@@ -124,6 +131,7 @@ bool EntryList::getEntry(int vertex, Entry &ret) {
 
 bool EntryList::remove(int vertex, Entry &ret) {
     bool remove_check = false;
+
     for (int i = 0; i <= _size; i++) {
         if (_array[i]._vertex == vertex) {
             ret = _array[i]._vertex;
@@ -148,6 +156,8 @@ bool EntryList::remove(int vertex, Entry &ret) {
             delete[] _array;
             _array = nullptr;
             _array = new_entry_list;
+            delete[] new_entry_list;
+            new_entry_list = nullptr;;
         }
     }
     return true;
@@ -175,19 +185,17 @@ EntryList::Iterator::Iterator(EntryList *EList, int indx) {
     _indx = indx;
 }
 
-bool EntryList::Iterator::operator!=(const EntryList::Iterator& rhs) {return _indx != rhs._indx;}
+bool EntryList::Iterator::operator!=(const EntryList::Iterator& rhs) { return _indx != rhs._indx;}
 
-bool EntryList::Iterator::operator==(const EntryList::Iterator& rhs) {return _indx == rhs._indx;}
+bool EntryList::Iterator::operator==(const EntryList::Iterator& rhs) { return _indx == rhs._indx;}
 
 void EntryList::Iterator::operator++(int dummy) {_indx+=1;}
 
-EntryList::Entry EntryList::Iterator::operator*() {return _ELptr->_array[_indx];}
+EntryList::Entry EntryList::Iterator::operator*() { return _ELptr->_array[_indx];}
 
-EntryList::Iterator EntryList::begin() {
-    return Iterator(this, 0);
-}
+EntryList::Iterator EntryList::begin() { return Iterator(this, 0); }
 
-EntryList::Iterator EntryList::end() {return Iterator(this, _size);}
+EntryList::Iterator EntryList::end() { return Iterator(this, _size); }
 
 // Insertion operator for Entry objects - DO NOT MODIFY
 ostream& operator<<(ostream& sout, const EntryList::Entry& e) {
@@ -204,7 +212,7 @@ ostream& operator<<(ostream& sout, const EntryList::Entry& e) {
 // In particular, passing these tests does not mean your
 // implementation will pass all grading tests.
 
-// int main() {
+//// int main() {
 //   EntryList el;
 //   EntryList::Entry e;
 //
